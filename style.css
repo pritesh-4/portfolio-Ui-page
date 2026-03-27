@@ -118,6 +118,76 @@ body {
     margin-bottom: 40px;
 }
 
+.gallery {
+    padding: 90px 15%;
+    background: #ffffff;
+}
+
+.gallery h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.gallery-subtitle {
+    margin-top: 50px;
+}
+
+.gallery p {
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 22px;
+}
+
+.gallery-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 14px;
+    background: #eef0ff;
+    min-height: 240px;
+    box-shadow: 0 10px 25px rgba(20, 20, 50, 0.08);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.gallery-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.45s ease;
+}
+
+.gallery-overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 12px 14px;
+    color: #ffffff;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    background: linear-gradient(to top, rgba(8, 8, 30, 0.78), rgba(8, 8, 30, 0));
+    transform: translateY(100%);
+    transition: transform 0.35s ease;
+}
+
+.gallery-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 16px 35px rgba(20, 20, 50, 0.16);
+}
+
+.gallery-card:hover img {
+    transform: scale(1.08);
+}
+
+.gallery-card:hover .gallery-overlay {
+    transform: translateY(0);
+}
+
 .list {
     display: flex;
     flex-direction: column;
@@ -181,5 +251,26 @@ body {
 
     .header {
         padding: 20px 30px;
+    }
+
+    .skills,
+    .work,
+    .gallery,
+    .reach {
+        padding: 70px 8%;
+    }
+
+    .box h1 {
+        font-size: 36px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 520px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
     }
 }
