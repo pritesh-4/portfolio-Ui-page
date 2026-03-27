@@ -8,12 +8,15 @@
 body {
     background: #f6f7fb;
     color: #2b2b2b;
+    line-height: 1.5;
 }
 
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
     padding: 20px 60px;
     background: white;
     position: sticky;
@@ -22,16 +25,25 @@ body {
 }
 
 .brand {
-    font-size: 22px;
+    font-size: clamp(18px, 2vw, 22px);
     font-weight: 600;
     color: #6c63ff;
 }
 
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
 .menu a {
-    margin-left: 25px;
+    margin-left: 0;
     text-decoration: none;
     color: #444;
     position: relative;
+    white-space: nowrap;
 }
 
 .menu a::after {
@@ -54,8 +66,9 @@ body {
 }
 
 .box h1 {
-    font-size: 46px;
+    font-size: clamp(32px, 5vw, 46px);
     line-height: 1.2;
+    overflow-wrap: anywhere;
 }
 
 .box span {
@@ -66,6 +79,7 @@ body {
     margin: 25px 0;
     max-width: 520px;
     color: #666;
+    font-size: clamp(15px, 1.9vw, 17px);
 }
 
 .btn {
@@ -161,6 +175,11 @@ body {
     transition: transform 0.45s ease;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+}
+
 .gallery-overlay {
     position: absolute;
     left: 0;
@@ -244,24 +263,59 @@ body {
     color: #777777eb;
 }
 
-@media (max-width: 768px) {
-    .intro {
-        padding: 80px 8%;
+@media (max-width: 1024px) {
+    .header {
+        padding: 16px 32px;
     }
 
+    .intro,
+    .skills,
+    .work,
+    .gallery,
+    .reach {
+        padding-left: 9%;
+        padding-right: 9%;
+    }
+}
+
+@media (max-width: 768px) {
     .header {
-        padding: 20px 30px;
+        padding: 16px 20px;
+        justify-content: center;
+    }
+
+    .brand {
+        width: 100%;
+        text-align: center;
+    }
+
+    .menu {
+        width: 100%;
+        justify-content: center;
+        gap: 12px 16px;
+    }
+
+    .menu a {
+        font-size: 14px;
+    }
+
+    .intro {
+        padding: 72px 8%;
     }
 
     .skills,
     .work,
     .gallery,
     .reach {
-        padding: 70px 8%;
+        padding: 64px 8%;
     }
 
     .box h1 {
         font-size: 36px;
+    }
+
+    .gallery-card {
+        min-height: 200px;
     }
 
     .gallery-grid {
@@ -270,7 +324,72 @@ body {
 }
 
 @media (max-width: 520px) {
+    .header {
+        padding: 14px 14px;
+    }
+
+    .brand {
+        font-size: 17px;
+    }
+
+    .intro,
+    .skills,
+    .work,
+    .gallery,
+    .reach {
+        padding-left: 6%;
+        padding-right: 6%;
+    }
+
+    .intro {
+        padding-top: 56px;
+        padding-bottom: 56px;
+    }
+
+    .box h1 {
+        font-size: 30px;
+    }
+
+    .box p {
+        margin: 18px 0;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .card,
+    .item {
+        padding: 20px;
+    }
+
+    .item:hover,
+    .btn:hover,
+    .card:hover,
+    .gallery-card:hover {
+        transform: none;
+    }
+
     .gallery-grid {
         grid-template-columns: 1fr;
+    }
+
+    .gallery-card {
+        min-height: 220px;
+    }
+
+    .contact {
+        gap: 12px;
+    }
+
+    .contact a {
+        width: 100%;
+        text-align: center;
     }
 }
